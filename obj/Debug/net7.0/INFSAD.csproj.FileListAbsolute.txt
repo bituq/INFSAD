@@ -1,0 +1,14 @@
+C:\Users\DNoor\repo\INFSAD\bin\Debug\net7.0\INFSAD.exe
+C:\Users\DNoor\repo\INFSAD\bin\Debug\net7.0\INFSAD.deps.json
+C:\Users\DNoor\repo\INFSAD\bin\Debug\net7.0\INFSAD.runtimeconfig.json
+C:\Users\DNoor\repo\INFSAD\bin\Debug\net7.0\INFSAD.dll
+C:\Users\DNoor\repo\INFSAD\bin\Debug\net7.0\INFSAD.pdb
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.AssemblyInfoInputs.cache
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.AssemblyInfo.cs
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.csproj.CoreCompileInputs.cache
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.dll
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\refint\INFSAD.dll
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.pdb
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.genruntimeconfig.cache
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\ref\INFSAD.dll
