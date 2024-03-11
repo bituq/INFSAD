@@ -1,6 +1,6 @@
 namespace Cards.Factories;
 
-public class CreatureFactory : APermanentFactory<Creature>
+public class CreatureFactory : APermanentFactory
 {
     public CreatureFactory(Player owner)
         : base(owner) { }
