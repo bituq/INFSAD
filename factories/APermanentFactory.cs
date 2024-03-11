@@ -2,7 +2,7 @@ using Cards.States;
 
 namespace Cards.Factories;
 
-public abstract class APermanentFactory : ACardFactory<APermanent, IPermanentState>
+public abstract class APermanentFactory : ACardFactory<APermanent>
 {
     protected readonly Player owner;
 

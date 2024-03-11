@@ -2,7 +2,7 @@ using Cards.States;
 
 namespace Cards.Factories;
 
-public class SpellFactory : ACardFactory<Spell, ICardState>
+public class SpellFactory : ACardFactory<Spell>
 {
     public override Spell CreateCard(Color color)
     {

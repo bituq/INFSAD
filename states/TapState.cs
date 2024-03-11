@@ -1,30 +1,30 @@
 namespace Cards.States;
 
-public class TapState : IPermanentState
+public class TapState : ICardState
 {
-    public required APermanent Card { get; set; }
+    public required ACard Card { get; set; }
 
     public void Discard()
     {
-        Card.State = (IPermanentState)new DiscardState() { Card = Card };
+        Card.State = new DiscardState() { Card = Card };
     }
 
     public void Draw()
     {
-        Card.State = (IPermanentState)new DrawnState() { Card = Card };
+        Card.State = new DrawnState() { Card = Card };
     }
 
     public void Play() { }
 
     public void SetIdle()
     {
-        Card.State = (IPermanentState)new IdleState() { Card = Card };
+        Card.State = new IdleState() { Card = Card };
     }
 
     public void Tap() { }
 
     public void Untap()
     {
-        Card.State = (IPermanentState)new PlayedState() { Card = Card };
+        Card.State = new PlayedState() { Card = Card };
     }
 }

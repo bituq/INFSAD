@@ -2,7 +2,7 @@ using Cards.States;
 
 namespace Cards;
 
-public class Spell : ACard<ICardState>
+public class Spell : ACard
 {
     private List<Effect> effects = new();
     public int Cost { get; set; }

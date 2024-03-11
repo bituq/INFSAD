@@ -2,7 +2,7 @@ namespace Cards.States;
 
 public class PlayedState : ICardState
 {
-    public required ACard<ICardState> Card { get; set; }
+    public required ACard Card { get; set; }
 
     public void Discard()
     {
@@ -20,4 +20,11 @@ public class PlayedState : ICardState
     {
         Card.State = new IdleState() { Card = Card };
     }
+
+    public void Tap()
+    {
+        Card.State = new TapState() { Card = Card };
+    }
+
+    public void Untap() { }
 }

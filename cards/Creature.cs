@@ -1,7 +1,10 @@
+using Cards.States;
+
 namespace Cards;
 
 public class Creature : APermanent
 {
+    
     private int attack;
     private int defence;
 
@@ -13,7 +16,7 @@ public class Creature : APermanent
             attack = value;
 
             if (attack < 0)
-                Discard();
+                State.Discard();
         }
     }
 
@@ -25,7 +28,9 @@ public class Creature : APermanent
             defence = value;
 
             if (defence < 0)
-                Discard();
+                State.Discard();
         }
     }
+
+    public override ICardState State { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }

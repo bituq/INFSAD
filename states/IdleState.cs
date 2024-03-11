@@ -2,7 +2,7 @@ namespace Cards.States;
 
 public class IdleState : ICardState
 {
-    public required ACard<ICardState> Card { get; set; }
+    public required ACard Card { get; set; }
 
     public void Discard()
     {
@@ -20,4 +20,12 @@ public class IdleState : ICardState
     }
 
     public void SetIdle() { }
+
+    public void Tap()
+    {
+    }
+
+    public void Untap()
+    {
+    }
 }
