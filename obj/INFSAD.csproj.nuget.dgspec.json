@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DNoor\\repo\\INFSAD\\INFSAD.csproj": {}
+    "C:\\Users\\joyho\\repos\\INFSAD\\INFSAD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DNoor\\repo\\INFSAD\\INFSAD.csproj": {
+    "C:\\Users\\joyho\\repos\\INFSAD\\INFSAD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DNoor\\repo\\INFSAD\\INFSAD.csproj",
+        "projectUniqueName": "C:\\Users\\joyho\\repos\\INFSAD\\INFSAD.csproj",
         "projectName": "INFSAD",
-        "projectPath": "C:\\Users\\DNoor\\repo\\INFSAD\\INFSAD.csproj",
-        "packagesPath": "C:\\Users\\DNoor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DNoor\\repo\\INFSAD\\obj\\",
+        "projectPath": "C:\\Users\\joyho\\repos\\INFSAD\\INFSAD.csproj",
+        "packagesPath": "C:\\Users\\joyho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joyho\\repos\\INFSAD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DNoor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\joyho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
