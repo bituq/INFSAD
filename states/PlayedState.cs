@@ -20,11 +20,4 @@ public class PlayedState : ICardState
     {
         Card.State = new IdleState() { Card = Card };
     }
-
-    public void Tap()
-    {
-        Card.State = new TapState() { Card = Card };
-    }
-
-    public void Untap() { }
 }

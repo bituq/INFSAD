@@ -2,12 +2,9 @@ namespace Cards.Factories;
 
 public class CreatureFactory : APermanentFactory
 {
-    public CreatureFactory(Player owner)
-        : base(owner) { }
-
     public override Creature CreateCard(Color color)
     {
-        return new() { Color = color, Owner = owner };
+        return new() { Color = color };
     }
 
     public Creature CreateCard(Color color, int attack, int defence)
@@ -15,7 +12,6 @@ public class CreatureFactory : APermanentFactory
         return new()
         {
             Color = color,
-            Owner = owner,
             Attack = attack,
             Defence = defence
         };

@@ -1,0 +1,1 @@
+1. Voeg owner (player) toe aan ACard.

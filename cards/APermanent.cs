@@ -5,9 +5,22 @@ namespace Cards;
 public abstract class APermanent : ACard
 {
     public bool IsTapped { get; private set; }
-    public required Player Owner { get; set; }
 
-    public virtual void Tap() => IsTapped = true;
+    public virtual bool Tap()
+    {
+        if (State is not PlayedState)
+            return false;
 
-    public virtual void Untap() => IsTapped = false;
+        IsTapped = true;
+        return true;
+    }
+
+    public virtual bool Untap()
+    {
+        if (State is not PlayedState)
+            return false;
+
+        IsTapped = false;
+        return true;
+    }
 }
