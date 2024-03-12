@@ -1,2 +1,3 @@
-1. Voeg owner (player) toe aan ACard.
-2. Geef player ook attack en defence
+1. Cost toevoegen
+2. Kleuren toevoegen
+3. Kaarten tappen/untappen

@@ -1,20 +1,33 @@
 using Cards;
 using Cards.Collections;
 using Cards.States;
+using Entities;
 
 namespace CardGame;
 
-public class Player
+public class Player : IEntity
 {
     private readonly string name;
-    public int lives = 10;
+    private int defence;
 
+    public int Lives { get; set; } = 10;
     public Pool Pool { get; private set; }
     public CardCollection Deck { get; private set; } = new();
     public CardCollection Hand { get; private set; } = new();
     public CardCollection DiscardPile { get; private set; } = new();
     public CardCollection Battlefield { get; private set; } = new();
     public EnergyPool EnergyPool { get; private set; } = new();
+    public int Attack { get; set; }
+    public int Defence
+    {
+        get => defence;
+        set
+        {
+            defence = value;
+            if (value < 0)
+                Lives += value;
+        }
+    }
 
     public Player(string name, IEnumerable<ACard> pool)
     {
@@ -42,13 +55,14 @@ public class Player
         card.State.SetIdle();
     }
 
-    public void Attack(Player opponent, Creature creature)
-    {
-        opponent.lives -= creature.GetAttackValue();
-    }
-
     public override string ToString()
     {
         return name;
+    }
+
+    public void Interact(IEntity entity)
+    {
+        entity.Defence -= Attack;
+        Defence -= entity.Attack;
     }
 }
