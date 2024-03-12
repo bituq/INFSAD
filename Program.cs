@@ -1,11 +1,12 @@
 ﻿using CardGame;
 using Cards;
 using Cards.Factories;
+using Colors;
 
 CreatureFactory creatures = new();
 SpellFactory spells = new();
 
-Creature card1 = creatures.CreateCard(new(), 2, 1, 5);
+Creature card1 = creatures.CreateCard(Color.Green, 2, 1, 5);
 
 Player dylan =
     new(
@@ -13,12 +14,12 @@ Player dylan =
         new List<ACard>()
         {
             card1,
-            spells.CreateInstantCard(new(), 4, Array.Empty<Effect>()),
-            spells.CreateCard(new(), 2, Array.Empty<Effect>())
+            spells.CreateInstantCard(Color.Blue, 4, Array.Empty<Effect>()),
+            spells.CreateCard(Color.Red, 2, Array.Empty<Effect>())
         }
     );
 
-Creature card2 = creatures.CreateCard(new(), 1, 3, 2);
+Creature card2 = creatures.CreateCard(Color.Blue, 1, 3, 2);
 Player joy = new("Joy", new List<ACard>() { card2 });
 
 

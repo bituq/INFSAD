@@ -1,4 +1,5 @@
 using Cards.States;
+using Colors;
 
 namespace Cards;
 
@@ -23,5 +24,11 @@ public abstract class ACard
     public ACard()
     {
         State = new IdleState() { Card = this };
+    }
+
+    public override string ToString()
+    {
+        Console.ForegroundColor = (ConsoleColor)Color;
+        return base.ToString();
     }
 }
