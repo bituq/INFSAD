@@ -4,8 +4,20 @@ namespace Cards;
 
 public abstract class ACard
 {
+    private ICardState state;
+
     public required Color Color { get; set; }
-    public ICardState State { get; set; }
+    public ICardState State
+    {
+        get => state;
+        set
+        {
+            state = value;
+            OnStateChanged(value);
+        }
+    }
+    public delegate void ChangeState(ICardState state);
+    public event ChangeState OnStateChanged;
 
     public ACard()
     {
