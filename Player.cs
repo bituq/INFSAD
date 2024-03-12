@@ -3,41 +3,31 @@ using Cards.Collections;
 
 namespace CardGame;
 
-class Player
+public class Player
 {
-    private string name;
-    private int lives = 10;
+    private readonly string name;
+    public  int lives = 10;
 
-    public Stack<ACard> Deck { get; set; } = new();
-    public Stack<ACard> Hand { get; set; } = new();
-    public Stack<ACard> DiscardPile { get; set; } = new();
-    public List<ACard> Battlefield { get; set; } = new();
-    public EnergyPool EnergyPool { get; set; } = new();
+    public Pool Pool { get; private set; }
+    public CardCollection Deck { get; private set; } = new();
+    public CardCollection Hand { get; private set; } = new();
+    public CardCollection DiscardPile { get; private set; } = new();
+    public CardCollection Battlefield { get; private set; } = new();
+    public EnergyPool EnergyPool { get; private set; } = new();
 
-    public Player(string name, Deck deck)
+    public Player(string name, IEnumerable<ACard> pool)
     {
         this.name = name;
-    }
-
-    public void Draw()
-    {
-        Deck.DrawCard();
-    }
-
-    public void Play(Card card)
-    {
-        hand.RemoveCard(card);
-        battlefield.AddCard(card);
-    }
-
-    public void Discard(Card card)
-    {
-        battlefield.RemoveCard(card);
-        discardPile.AddCard(card);
+        Pool = new(this, pool);
     }
 
     public void Attack(Player opponent, Creature creature)
     {
         opponent.lives -= creature.GetAttackValue();
+    }
+
+    public override string ToString()
+    {
+        return name;
     }
 }

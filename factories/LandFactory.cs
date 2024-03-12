@@ -9,7 +9,8 @@ public class LandFactory : APermanentFactory
     {
         return new()
         {
-            Color = color
+            Color = color,
+            Cost = 0
         };
     }
 }

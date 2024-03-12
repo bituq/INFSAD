@@ -6,12 +6,7 @@ public class SpellFactory : ACardFactory<Spell>
 {
     public override Spell CreateCard(Color color)
     {
-        return new() { Color = color };
-    }
-
-    public Spell CreateCard(Color color, int cost)
-    {
-        return new() { Color = color, Cost = cost };
+        return new() { Color = color, Cost = 0 };
     }
 
     public Spell CreateCard(Color color, int cost, Effect[] effects)
@@ -22,11 +17,6 @@ public class SpellFactory : ACardFactory<Spell>
             Cost = cost,
             Effects = effects.ToList()
         };
-    }
-
-    public Spell CreateInstantCard(Color color, int cost)
-    {
-        return new() { Color = color, Cost = cost, };
     }
 
     public Spell CreateInstantCard(Color color, int cost, Effect[] effects)
