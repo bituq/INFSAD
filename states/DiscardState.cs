@@ -20,12 +20,4 @@ public class DiscardState : ICardState
     {
         Card.State = new IdleState() { Card = Card };
     }
-
-    public void Tap()
-    {
-    }
-
-    public void Untap()
-    {
-    }
 }
