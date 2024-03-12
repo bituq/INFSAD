@@ -1,7 +1,6 @@
 ﻿using CardGame;
 using Cards;
 using Cards.Factories;
-using Cards.States;
 
 CreatureFactory creatures = new();
 SpellFactory spells = new();
@@ -17,4 +16,7 @@ Player player =
         }
     );
 
-player.Deck[0].State = new DrawnState() { Card = player.Deck[0] };
+ACard card = player.Deck.First();
+
+player.Draw(card);
+player.Discard(card);

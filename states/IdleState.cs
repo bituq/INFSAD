@@ -21,11 +21,4 @@ public class IdleState : ICardState
 
     public void SetIdle() { }
 
-    public void Tap()
-    {
-    }
-
-    public void Untap()
-    {
-    }
 }

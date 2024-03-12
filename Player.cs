@@ -1,12 +1,13 @@
 using Cards;
 using Cards.Collections;
+using Cards.States;
 
 namespace CardGame;
 
 public class Player
 {
     private readonly string name;
-    public  int lives = 10;
+    public int lives = 10;
 
     public Pool Pool { get; private set; }
     public CardCollection Deck { get; private set; } = new();
@@ -19,6 +20,26 @@ public class Player
     {
         this.name = name;
         Pool = new(this, pool);
+    }
+
+    public void Draw(ACard card)
+    {
+        card.State.Draw();
+    }
+
+    public void Play(ACard card)
+    {
+        card.State.Play();
+    }
+
+    public void Discard(ACard card)
+    {
+        card.State.Discard();
+    }
+
+    public void ToDeck(ACard card)
+    {
+        card.State.SetIdle();
     }
 
     public void Attack(Player opponent, Creature creature)
