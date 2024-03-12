@@ -1,7 +1,6 @@
 namespace Cards.States;
 
 public class DrawnState : ICardState
-
 {
     public required ACard Card { get; set; }
 

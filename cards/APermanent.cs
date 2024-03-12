@@ -9,7 +9,10 @@ public abstract class APermanent : ACard
     public virtual bool Tap()
     {
         if (State is not PlayedState)
+        {
+            Console.WriteLine("Cannot tap while in " + State.GetType().Name);
             return false;
+        }
 
         IsTapped = true;
         return true;
@@ -18,7 +21,10 @@ public abstract class APermanent : ACard
     public virtual bool Untap()
     {
         if (State is not PlayedState)
+        {
+            Console.WriteLine("Cannot untap while in " + State.GetType().Name);
             return false;
+        }
 
         IsTapped = false;
         return true;

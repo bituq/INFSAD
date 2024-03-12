@@ -31,6 +31,4 @@ public class Creature : APermanent
                 State.Discard();
         }
     }
-
-    public override ICardState State { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }
