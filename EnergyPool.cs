@@ -1,8 +1,8 @@
 namespace CardGame;
     public class EnergyPool
     {
-        private Dictionary<string, int> energy = new Dictionary<string, int>();
-        public Dictionary<string, int> Energy { get => energy; }
+        private readonly Dictionary<string, int> energy = new();
+        public IReadOnlyDictionary<string, int> Energy => energy;
         public void AddEnergy(string color, int amount)
         {
             if (energy.ContainsKey(color))
