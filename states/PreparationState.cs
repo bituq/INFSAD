@@ -14,7 +14,11 @@ public class PreparationPhase : IPhaseState<DrawingPhase>
         
         foreach (ACard card in turn.Player.Battlefield)
             if (card is APermanent permanent && permanent.IsTapped)
+            {
                 permanent.Untap();
+                if (permanent is Land land)
+                    land.Used = false;
+            }
     }
 
     public DrawingPhase Next()

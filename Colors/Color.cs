@@ -1,8 +1,21 @@
 namespace Colors;
 
-public enum Color
+public abstract class AColor
 {
-    Blue = ConsoleColor.Blue,
-    Red = ConsoleColor.Red,
-    Green = ConsoleColor.Green,
+    public abstract string HexCode { get; protected set; }
+}
+
+public class Blue : AColor
+{
+    public override string HexCode { get; protected set; } = "0000ff";
+}
+
+public class Green : AColor
+{
+    public override string HexCode { get; protected set; } = "00ff00";
+}
+
+public class Red : AColor
+{
+    public override string HexCode { get; protected set; } = "ff000";
 }

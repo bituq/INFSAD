@@ -19,9 +19,22 @@ public class MainPhase : IPhaseState<EndingPhase>
         from.Interact(to);
     }
 
-    public void PlayCard(ACard card)
+    public bool PlayCard(ACard card)
     {
+        var lands = Turn.Player.GetUnusedTappedLands(card.Color);
+
+        if (lands.Count < card.Cost)
+        {
+            Console.WriteLine($"Not enough energy to play {card}");
+            return false;
+        }
+
+        for (int i = 0; i < card.Cost; i++)
+            lands[i].Used = true;
+
         card.State.Play();
+        Console.WriteLine($"Played {card}");
+        return true;
     }
 
     public EndingPhase Next()

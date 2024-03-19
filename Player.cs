@@ -1,5 +1,7 @@
+using System.Collections;
 using Cards;
 using Cards.Collections;
+using Colors;
 using Entities;
 using Phases;
 
@@ -38,6 +40,24 @@ public class Player : IEntity
     {
         this.name = name;
         Pool.AssignCards(this, pool);
+    }
+
+    public List<Land> GetUnusedTappedLands(AColor color)
+    {
+        List<Land> lands = new();
+
+        foreach (ACard card in Battlefield)
+        {
+            if (card is Land land)
+            {
+                if (land.Color == color && !land.Used && land.IsTapped)
+                {
+                    lands.Add(land);
+                }
+            }
+        }
+
+        return lands;
     }
 
     public Turn StartTurn()

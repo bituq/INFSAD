@@ -4,12 +4,12 @@ namespace Cards.Factories;
 
 public class SpellFactory : ACardFactory<Spell>
 {
-    public override Spell CreateCard(Color color)
+    public override Spell CreateCard(AColor color)
     {
         return new() { Color = color, Cost = 0 };
     }
 
-    public Spell CreateCard(Color color, int cost, Effect[] effects)
+    public Spell CreateCard(AColor color, int cost, Effect[] effects)
     {
         return new()
         {
@@ -19,7 +19,7 @@ public class SpellFactory : ACardFactory<Spell>
         };
     }
 
-    public Spell CreateInstantCard(Color color, int cost, Effect[] effects)
+    public Spell CreateInstantCard(AColor color, int cost, Effect[] effects)
     {
         return new()
         {

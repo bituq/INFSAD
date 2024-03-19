@@ -5,7 +5,7 @@ namespace Cards.Factories;
 public class LandFactory : APermanentFactory
 {
 
-    public override Land CreateCard(Color color)
+    public override Land CreateCard(AColor color)
     {
         return new()
         {

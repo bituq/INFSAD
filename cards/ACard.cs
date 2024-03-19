@@ -7,7 +7,7 @@ public abstract class ACard
 {
     private ICardState state;
 
-    public required Color Color { get; set; }
+    public required AColor Color { get; set; }
     public required int Cost { get; set; }
     public ICardState State
     {
