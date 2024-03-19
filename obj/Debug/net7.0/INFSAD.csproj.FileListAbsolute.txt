@@ -12,3 +12,4 @@ C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\refint\INFSAD.dll
 C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.pdb
 C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.genruntimeconfig.cache
 C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\ref\INFSAD.dll
+C:\Users\DNoor\repo\INFSAD\obj\Debug\net7.0\INFSAD.sourcelink.json

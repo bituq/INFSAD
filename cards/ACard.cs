@@ -25,10 +25,4 @@ public abstract class ACard
     {
         State = new IdleState() { Card = this };
     }
-
-    public override string ToString()
-    {
-        Console.ForegroundColor = (ConsoleColor)Color;
-        return base.ToString();
-    }
 }

@@ -1,21 +1,19 @@
 using CardGame;
 using Cards.States;
+using Singleton;
 
 namespace Cards.Collections;
 
-public class Pool
+public class Pool : ASingleton<Pool>
 {
-    private readonly Dictionary<ACard, CardCollection?> cards = new();
-    private readonly Player player;
+    private readonly Dictionary<ACard, (Player, CardCollection?)> cards = new();
 
-    public Pool(Player player, IEnumerable<ACard> cards)
+    public void AssignCards(Player player, IEnumerable<ACard> cards)
     {
-        this.player = player;
-
         foreach (ACard card in cards)
         {
             RegisterCard(card);
-            this.cards.Add(card, null);
+            this.cards.Add(card, (player, null));
             card.State = new IdleState() { Card = card }; // This will automatically move the card to the player's deck.
         }
     }
@@ -46,8 +44,10 @@ public class Pool
         return (state) =>
         {
             // Only attempt to remove the card if it already exists in the dictionary
-            if (cards.TryGetValue(card, out CardCollection? currentCollection))
-                currentCollection?.Remove(card);
+            if (cards.TryGetValue(card, out (Player, CardCollection?) currentCollection))
+                currentCollection.Item2?.Remove(card);
+
+            Player player = currentCollection.Item1;
 
             if (state is DiscardState)
             {
@@ -56,6 +56,12 @@ public class Pool
             }
             else if (state is DrawnState)
             {
+                if (player.Deck.Count == 0)
+                {
+                    player.Lives = 0;
+                    Console.WriteLine($"{player} is killed because their deck is empty");
+                    return;
+                }
                 SetCardCollection(player.Hand, card);
                 Console.WriteLine($"{card} is moved to {player}'s hand.");
             }
@@ -75,6 +81,6 @@ public class Pool
     private void SetCardCollection(CardCollection collection, ACard card)
     {
         collection.Push(card);
-        cards[card] = collection;
+        cards[card] = (cards[card].Item1, collection);
     }
 }

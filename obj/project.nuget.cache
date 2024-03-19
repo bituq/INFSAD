@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "nL2I51MwqSs03JJtA61L9oLSefuGFko7i2mllOUCZSkmrjZ1deYqeLwMlsOpDsRDqWaSKUyTP3HgLJOK6LgKHg==",
+  "dgSpecHash": "f9jF9uBDlKrc1beYQeN7gsnSlXXwchOK89m9FkiA7ILbrd/h904Ggz8TdwQ5enmA+WXbSMdPcOkQWt55H0WvoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\DNoor\\repo\\INFSAD\\INFSAD.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DNoor\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\DNoor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\DNoor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\DNoor\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.16\\microsoft.netcore.app.host.win-x64.7.0.16.nupkg.sha512"
+  ],
   "logs": []
 }

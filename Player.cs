@@ -1,7 +1,7 @@
 using Cards;
 using Cards.Collections;
-using Cards.States;
 using Entities;
+using Phases;
 
 namespace CardGame;
 
@@ -9,20 +9,25 @@ public class Player : IEntity
 {
     private readonly string name;
     private int defence;
+    private readonly Pool pool = new();
 
+    Turn turn;
     public int Lives { get; set; } = 10;
-    public Pool Pool { get; private set; }
     public CardCollection Deck { get; private set; } = new();
     public CardCollection Hand { get; private set; } = new();
     public CardCollection DiscardPile { get; private set; } = new();
     public CardCollection Battlefield { get; private set; } = new();
     public EnergyPool EnergyPool { get; private set; } = new();
+    public Pool Pool => pool.GetInstance();
     public int Attack { get; set; }
     public int Defence
     {
         get => defence;
         set
         {
+            if (defence > value)
+                Console.WriteLine($"{this} was attacked");
+
             defence = value;
             if (value < 0)
                 Lives += value;
@@ -32,27 +37,13 @@ public class Player : IEntity
     public Player(string name, IEnumerable<ACard> pool)
     {
         this.name = name;
-        Pool = new(this, pool);
+        Pool.AssignCards(this, pool);
     }
 
-    public void Draw(ACard card)
+    public Turn StartTurn()
     {
-        card.State.Draw();
-    }
-
-    public void Play(ACard card)
-    {
-        card.State.Play();
-    }
-
-    public void Discard(ACard card)
-    {
-        card.State.Discard();
-    }
-
-    public void ToDeck(ACard card)
-    {
-        card.State.SetIdle();
+        turn = new Turn(this);
+        return turn;
     }
 
     public override string ToString()

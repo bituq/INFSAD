@@ -14,6 +14,8 @@ public abstract class APermanent : ACard
             return false;
         }
 
+        Console.WriteLine($"{this} has been tapped.");
+
         IsTapped = true;
         return true;
     }
@@ -25,6 +27,8 @@ public abstract class APermanent : ACard
             Console.WriteLine("Cannot untap while in " + State.GetType().Name);
             return false;
         }
+
+        Console.WriteLine($"{this} has been untapped.");
 
         IsTapped = false;
         return true;
