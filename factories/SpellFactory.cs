@@ -9,24 +9,35 @@ public class SpellFactory : ACardFactory<Spell>
         return new() { Color = color, Cost = 0 };
     }
 
-    public Spell CreateCard(AColor color, int cost, Effect[] effects)
+    public Spell CreateCard(AColor color, int cost, Effect effect)
     {
         return new()
         {
             Color = color,
             Cost = cost,
-            Effects = effects.ToList()
+            Effect = effect
         };
     }
 
-    public Spell CreateInstantCard(AColor color, int cost, Effect[] effects)
+    public Spell CreateInstantCard(AColor color, int cost, Effect effect)
     {
         return new()
         {
             Color = color,
             Cost = cost,
-            Effects = effects.ToList(),
+            Effect = effect,
             IsInstantaneous = true
+        };
+    }
+
+    public Spell CreateContinuousCard(AColor color, int cost, Effect effect)
+    {
+        return new()
+        {
+            Color = color,
+            Cost = cost,
+            Effect = effect,
+            IsContinuous = true
         };
     }
 }

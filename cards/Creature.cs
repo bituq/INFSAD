@@ -3,7 +3,7 @@ using Entities;
 
 namespace Cards;
 
-public class Creature : APermanent, IEntity
+public class Creature : APermanent, IEntity, ICardWithEffect
 {
     
     private int attack;
@@ -32,6 +32,10 @@ public class Creature : APermanent, IEntity
                 State.Discard();
         }
     }
+
+    public Effect Effect { get; set; }
+    public bool IsInstantaneous { get; set; } = false;
+    public bool IsContinuous { get; set; } = false;
 
     public void Interact(IEntity entity)
     {

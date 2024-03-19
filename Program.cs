@@ -16,8 +16,8 @@ Player dylan =
         new List<ACard>()
         {
             card1,
-            spells.CreateInstantCard(new Blue(), 4, Array.Empty<Effect>()),
-            spells.CreateCard(new Red(), 2, Array.Empty<Effect>())
+            spells.CreateInstantCard(new Blue(), 4, new Effect((turn) => {})),
+            spells.CreateCard(new Red(), 2, new Effect((turn) => {}))
         }
     );
 

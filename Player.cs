@@ -19,7 +19,6 @@ public class Player : IEntity
     public CardCollection Hand { get; private set; } = new();
     public CardCollection DiscardPile { get; private set; } = new();
     public CardCollection Battlefield { get; private set; } = new();
-    public EnergyPool EnergyPool { get; private set; } = new();
     public Pool Pool => pool.GetInstance();
     public int Attack { get; set; }
     public int Defence
@@ -50,7 +49,7 @@ public class Player : IEntity
         {
             if (card is Land land)
             {
-                if (land.Color == color && !land.Used && land.IsTapped)
+                if (land.Color.GetType() == color.GetType() && !land.Used && land.IsTapped)
                 {
                     lands.Add(land);
                 }

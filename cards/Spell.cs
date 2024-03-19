@@ -2,14 +2,9 @@ using Cards.States;
 
 namespace Cards;
 
-public class Spell : ACard
+public class Spell : ACard, ICardWithEffect
 {
-    private List<Effect> effects = new();
-    public bool IsInstantaneous { get; set; }
-
-    public List<Effect> Effects
-    {
-        get => effects;
-        set => effects = value;
-    }
+    public Effect Effect { get; set; }
+    public bool IsInstantaneous { get; set; } = false;
+    public bool IsContinuous { get; set; } = false;
 }

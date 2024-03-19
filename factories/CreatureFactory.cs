@@ -24,4 +24,6 @@ public class CreatureFactory : APermanentFactory
             Cost = cost
         };
     }
+    
+    
 }

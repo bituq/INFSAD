@@ -34,6 +34,14 @@ public class MainPhase : IPhaseState<EndingPhase>
 
         card.State.Play();
         Console.WriteLine($"Played {card}");
+
+        if (card is ICardWithEffect cardWithEffect)
+        {
+            if (cardWithEffect.IsInstantaneous)
+            {
+                cardWithEffect.Effect.Activate(Turn);
+            }
+        }
         return true;
     }
 
