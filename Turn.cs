@@ -5,16 +5,20 @@ namespace Phases;
 
 public class Turn
 {
-    readonly Player player;
+    public Player Player { get; private set; }
+    public Player Opponent { get; private set; }
     PreparationPhase state;
 
-    public Turn(Player player)
+    public Turn(Player player, Player opponent)
     {
-        this.player = player;
+        Player = player;
+        Opponent = opponent;
         State = new PreparationPhase(this);
     }
 
-    public Player Player => player;
-
-    public PreparationPhase State { get => state; set => state = value; }
+    public PreparationPhase State
+    {
+        get => state;
+        set => state = value;
+    }
 }

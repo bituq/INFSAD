@@ -2,14 +2,14 @@ using Phases;
 
 public class Effect
 {
-	protected Action<Turn> action;
+	protected Action<EffectParameters> action;
 
-	public Effect(Action<Turn> action)
+	public Effect(Action<EffectParameters> action)
 	{
 		this.action = action;
 	}
 
-	public void Activate(Turn turn)
+	public void Activate(EffectParameters turn)
 	{
 		action(turn);
 	}

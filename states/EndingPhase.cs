@@ -8,9 +8,9 @@ public class EndingPhase : IPhaseState<PreparationPhase>
     {
         Turn = turn;
     }
+
     public PreparationPhase Next()
     {
-        Turn.State = new PreparationPhase(Turn);
-        return Turn.State;
+        return Turn.Opponent.StartTurn(Turn.Player);
     }
 }

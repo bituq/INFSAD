@@ -11,8 +11,6 @@ public class DrawingPhase : IPhaseState<MainPhase>
         Turn = turn;
 
         Console.WriteLine("In drawing phase.");
-
-        DrawCard(1);
     }
 
     public MainPhase Next()

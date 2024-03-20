@@ -36,6 +36,7 @@ public class Creature : APermanent, IEntity, ICardWithEffect
     public Effect Effect { get; set; }
     public bool IsInstantaneous { get; set; } = false;
     public bool IsContinuous { get; set; } = false;
+    public bool EffectUsed { get; set; }
 
     public void Interact(IEntity entity)
     {

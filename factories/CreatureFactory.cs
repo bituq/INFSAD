@@ -25,5 +25,40 @@ public class CreatureFactory : APermanentFactory
         };
     }
     
-    
+    public Creature CreateCard(AColor color, int cost, int attack, int defence, Effect effect)
+    {
+        return new()
+        {
+            Color = color,
+            Attack = attack,
+            Defence = defence,
+            Cost = cost,
+            Effect = effect
+        };
+    }
+
+    public Creature CreateInstantCard(AColor color, int cost, int attack, int defence, Effect effect)
+    {
+        return new()
+        {
+            Color = color,
+            Attack = attack,
+            Defence = defence,
+            Cost = cost,
+            Effect = effect,
+            IsInstantaneous = true
+        };
+    }
+    public Creature CreateContinuousCard(AColor color, int cost, int attack, int defence, Effect effect)
+    {
+        return new()
+        {
+            Color = color,
+            Attack = attack,
+            Defence = defence,
+            Cost = cost,
+            Effect = effect,
+            IsContinuous = true
+        };
+    }
 }

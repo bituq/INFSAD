@@ -16,7 +16,6 @@ public class IdleState : ICardState
 
     public void Play()
     {
-        Card.State = new PlayedState() { Card = Card };
     }
 
     public void SetIdle() { }

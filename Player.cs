@@ -4,6 +4,7 @@ using Cards.Collections;
 using Colors;
 using Entities;
 using Phases;
+using Phases.States;
 
 namespace CardGame;
 
@@ -59,10 +60,10 @@ public class Player : IEntity
         return lands;
     }
 
-    public Turn StartTurn()
+    public PreparationPhase StartTurn(Player opponent)
     {
-        turn = new Turn(this);
-        return turn;
+        turn = new Turn(this, opponent);
+        return turn.State;
     }
 
     public override string ToString()
