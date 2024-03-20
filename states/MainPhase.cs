@@ -37,12 +37,17 @@ public class MainPhase : IPhaseState<EndingPhase>
 
         if (card is ICardWithEffect cardWithEffect)
         {
+            cardWithEffect.Effect.Activate(Turn);
             if (cardWithEffect.IsInstantaneous)
-            {
-                cardWithEffect.Effect.Activate(Turn);
-            }
+                DiscardCard(card);
         }
+        
         return true;
+    }
+
+    public void DiscardCard(ACard card)
+    {
+        card.State.Discard();
     }
 
     public EndingPhase Next()
