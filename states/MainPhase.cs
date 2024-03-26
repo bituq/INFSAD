@@ -1,5 +1,6 @@
 using Cards;
 using Entities;
+using Phase.States;
 
 namespace Phases.States;
 
@@ -14,9 +15,9 @@ public class MainPhase : IPhaseState<EndingPhase>
         Turn = turn;
     }
 
-    public void Attack(IEntity from, IEntity to)
+    public AttackPhase Attack(IEntity from, IEntity to)
     {
-        from.Interact(to);
+        return new AttackPhase(this, from, to);
     }
 
     public bool UseLand(Land land)
@@ -33,6 +34,30 @@ public class MainPhase : IPhaseState<EndingPhase>
         Console.WriteLine($"Played {card}");
         card.State.Play();
         return true;
+    }
+
+    public Action? PlayCard(Spell spell, IEntity? target = null)
+    {
+        if (!UseLands(spell))
+            return null;
+
+        spell.State.Play();
+        Console.WriteLine($"Played {spell}");
+
+        if (spell.Effect != null)
+        {
+            Action? counterAction = null;
+
+            if (spell.IsContinuous || !spell.EffectUsed)
+                counterAction = spell.Effect.Activate(new EffectParameters() { turn = Turn, target = target });
+
+            if (spell.IsInstantaneous)
+                DiscardCard(spell);
+
+            return counterAction;
+        }
+
+        return null;
     }
 
     public bool PlayCard(ACard card, IEntity? target = null) {

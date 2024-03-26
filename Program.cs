@@ -21,6 +21,15 @@ Spell aroldSpell1 = spells.CreateInstantCard(new Green(), 1, new (par => {
         par.target.Attack += 3;
         par.target.Defence += 3;
     }
+}, par => {
+    if (par.target != null)
+    {
+        par.target.Attack -= 3;
+        par.target.Defence -= 3;
+    }
+}));
+Spell bryceSpell1 = spells.CreateInstantCard(new Red(), 1, new (par => {
+    par.attackPhase?.Counter();
 }));
 
 Player arold =
@@ -137,5 +146,6 @@ Console.WriteLine($"{phase9.Turn.Player} has {phase9.Turn.Player.Hand.Count} car
 
 MainPhase phase10 = phase9.Next();
 phase10.UseLand(aroldLand3);
-phase10.PlayCard(aroldSpell1, aroldCreature1);
-phase10.Attack(aroldCreature1, bryce);
+var aroldSpell1Counter = phase10.PlayCard(aroldSpell1, aroldCreature1);
+Console.WriteLine($"{aroldCreature1.Attack} {aroldCreature1.Defence}");
+MainPhase phase11 = phase10.Attack(aroldCreature1, bryce).Next();
